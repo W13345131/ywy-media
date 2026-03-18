@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 
 const userSchema = new mongoose.Schema({
+    clerkId: { type: String, unique: true },
     // 用户ID
     _id: {
         type: String,
