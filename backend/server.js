@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
+import { serve } from 'inngest/express';
+import { inngest, functions } from './inngest/index.js';
 
 
 dotenv.config();
@@ -21,6 +23,11 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.send('Server is running');
 });
+
+app.use('/api/inngest', serve({
+    client: inngest,
+    functions: functions,
+}));
 
 
 const PORT = process.env.PORT || 5556;
