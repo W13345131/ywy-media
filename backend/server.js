@@ -28,9 +28,9 @@ app.use('/api/inngest', serve({
     functions: functions,
 }));
 
-
+const PORT = process.env.PORT || 5556;
 
 // 本地开发时启动服务器
-app.listen(process.env.PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
 });

@@ -45,6 +45,7 @@ export const syncUserUpdation = inngest.createFunction(
         const updatedUserData = {
             email: email_addresses[0].email_address,
             full_name: `${first_name} ${last_name}`,
+            username: username,
             profile_picture: image_url
         }
         await User.findOneAndUpdate({_id: id}, updatedUserData);
@@ -63,7 +64,5 @@ export const syncUserDeletion = inngest.createFunction(
 
 
 export const functions = [
-    syncUserCreation,
-    syncUserUpdation,
-    syncUserDeletion,
+
 ];
