@@ -21,40 +21,40 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    // 用户个人简介
+    // 用户个人简介（Clerk 不提供，默认空，可由用户后续填写）
     bio: {
         type: String,
-        required: true,
+        default: '',
     },
     // 用户个人头像
     profile_picture: {
         type: String,
-        required: true,
+        default: '',
     },
     // 用户封面照片
     cover_photo: {
         type: String,
-        required: true,
+        default: '',
     },
     // 用户位置
     location: {
         type: String,
-        required: true,
+        default: '',
     },
     // 用户粉丝
     followers: {
         type: [String],
-        required: true,
+        default: [],
     },
     // 用户关注
     following: {
         type: [String],
-        required: true,
+        default: [],
     },
     // 用户好友
     connections: {
         type: [String],
-        required: true,
+        default: [],
     },
 }, { timestamps: true }) // timestamps: true 表示自动添加创建时间和更新时间
 
