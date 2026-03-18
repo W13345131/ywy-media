@@ -29,13 +29,8 @@ app.use('/api/inngest', serve({
 }));
 
 
-// Vercel Serverless 需要导出 app，不能使用 app.listen
-export default app;
 
 // 本地开发时启动服务器
-if (!process.env.VERCEL) {
-    const PORT = process.env.PORT || 5556;
-    app.listen(PORT, () => {
-        console.log(`Server is running on port ${PORT}`);
-    });
-}
+app.listen(process.env.PORT, () => {
+    console.log(`Server is running on port ${process.env.PORT}`);
+});
