@@ -1,0 +1,15 @@
+/* CSS 引入 Google 字体并应用到整个页面 */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+/* 全局字体设置 */
+* {
+  /* 使用 Outfit 字体作为全局字体 */
+  /* 如果 Outfit 字体未加载，则使用 sans-serif 作为备用字体 */
+  font-family: 'Outfit', sans-serif;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
