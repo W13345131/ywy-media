@@ -3,7 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import { inngest, functions } from './inngest/index.js';
-import { serve } from '@inngest/express';
+import { serve } from 'inngest/express';
 
 
 dotenv.config();
@@ -29,8 +29,13 @@ app.use('/api/inngest', serve({
 }));
 
 
-const PORT = process.env.PORT || 5556;
+// Vercel Serverless 需要导出 app，不能使用 app.listen
+export default app;
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+// 本地开发时启动服务器
+if (!process.env.VERCEL) {
+    const PORT = process.env.PORT || 5556;
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+}
